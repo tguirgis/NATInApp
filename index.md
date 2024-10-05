@@ -3,31 +3,30 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	
-	<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
 	<script type='text/javascript'>
-		var initESW = function(gslbBaseURL) {
-			// Required if you want labels in a language that’s different from your user’s context.
-			//embedded_svc.menu.settings.language = ''; //For example, enter 'en' or 'en-US'
-	
-			embedded_svc.menu.init(
-				'https://fleetcorna--amznchat2.sandbox.my.salesforce.com',
-				'https://d.la12s-core1.sfdc-lywfpd.salesforceliveagent.com/chat',
-				gslbBaseURL,
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+     			window.addEventListener("onEmbeddedMessagingReady", () => {
+				console.log( "Inside Prechat API");
+    				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({ "Account_Code" : "AA123" });
+			});
+
+			embeddedservice_bootstrap.init(
 				'00DRL000005cUNB',
-				'NAT_Chat_Deployment'
+				'NAT_Chat_Web',
+				'https://fleetcorna--amznchat2.sandbox.my.site.com/ESWNATChatWeb1728151742952',
+				{
+					scrt2URL: 'https://fleetcorna--amznchat2.sandbox.my.salesforce-scrt.com'
+				}
 			);
-		};
-	
-		if (!window.embedded_svc || !window.embedded_svc.menu) {
-			var s = document.createElement('script');
-			s.setAttribute('src', 'https://fleetcorna--amznchat2.sandbox.my.salesforce.com/embeddedservice/menu/fab.min.js');
-			s.onload = function() {
-				initESW(null);
-			};
-			document.body.appendChild(s);
-		} else {
-			initESW('https://service.force.com');
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
 		}
-	</script>
+	};
+</script>
+<script type='text/javascript' src='https://fleetcorna--amznchat2.sandbox.my.site.com/ESWNATChatWeb1728151742952/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 </body>
 </html>
