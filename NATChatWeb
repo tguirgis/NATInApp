@@ -1,5 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
+<html>
+<body>
 <script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
@@ -20,3 +22,5 @@
 </script>
 <script type='text/javascript' src='https://fleetcorna--amznchat2.sandbox.my.site.com/ESWNATChatWeb1728151742952/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
+</body>
+</html>
