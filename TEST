@@ -1,31 +1,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
-<style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #005290;
-		font-family: "Arial", sans-serif;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #005290;
-	}
-</style>
 
+<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
 <script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+	var initESW = function(gslbBaseURL) {
+		// Required if you want labels in a language that’s different from your user’s context.
+		//embedded_svc.menu.settings.language = ''; //For example, enter 'en' or 'en-US'
 
-			embeddedservice_bootstrap.init(
-				'00DRL000005cUNB',
-				'NAT_Chat_Web',
-				'https://fleetcorna--amznchat2.sandbox.my.site.com/ESWNATChatWeb1728151742952',
-				{
-					scrt2URL: 'https://fleetcorna--amznchat2.sandbox.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
+		embedded_svc.menu.init(
+			'https://fleetcorna--amznchat2.sandbox.my.salesforce.com',
+			'https://d.la12s-core1.sfdc-lywfpd.salesforceliveagent.com/chat',
+			gslbBaseURL,
+			'00DRL000005cUNB',
+			'NAT_Chat_Deployment'
+		);
 	};
+
+	if (!window.embedded_svc || !window.embedded_svc.menu) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://fleetcorna--amznchat2.sandbox.my.salesforce.com/embeddedservice/menu/fab.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
 </script>
-<script type='text/javascript' src='https://fleetcorna--amznchat2.sandbox.my.site.com/ESWNATChatWeb1728151742952/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
