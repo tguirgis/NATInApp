@@ -11,7 +11,7 @@
 					    // it's editable in the pre-chat form.
 					    	"Account_Code": {
 					      "value": "AA1232",
-					      "isEditableByEndUser": false
+					      "isEditableByEndUser": true
 					    },
 	 					"_email": {
 					      "value": "Jane@testemail.com.invalid",
