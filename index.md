@@ -10,7 +10,7 @@
 					    // List the pre-chat field names with the value and whether
 					    // it's editable in the pre-chat form.
 					    "_email": {
-					      "value": "Jane",
+					      "value": "Jane@testemail.com.invalid",
 					      "isEditableByEndUser": false
 					    }
 	 				  });
