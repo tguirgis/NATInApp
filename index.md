@@ -11,7 +11,7 @@
 					    // it's editable in the pre-chat form.
 					    "_email": {
 					      "value": "Jane@testemail.com.invalid",
-					      "isEditableByEndUser": false
+					      "isEditableByEndUser": true
 					    }
 	 				  });
 					});
