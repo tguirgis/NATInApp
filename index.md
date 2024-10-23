@@ -9,7 +9,11 @@
 					  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 					    // List the pre-chat field names with the value and whether
 					    // it's editable in the pre-chat form.
-					    "_email": {
+					    	"account_code": {
+					      "value": "AA1232",
+					      "isEditableByEndUser": true
+					    },
+	 					"_email": {
 					      "value": "Jane@testemail.com.invalid",
 					      "isEditableByEndUser": true
 					    }
