@@ -4,7 +4,17 @@
 			function initEmbeddedMessaging() {
 				try {
 					embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-		
+
+					window.addEventListener("onEmbeddedMessagingReady", e => {
+					  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+					    // List the pre-chat field names with the value and whether
+					    // it's editable in the pre-chat form.
+					    "_email": {
+					      "value": "Jane",
+					      "isEditableByEndUser": false
+					    }
+	 				  });
+					});
 					embeddedservice_bootstrap.init(
 						'00DRL000005cUNB',
 						'NAT_Chat_Web',
